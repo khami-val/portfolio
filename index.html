@@ -72,7 +72,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:64px;d
 .stat-label{font-size:11px;font-weight:400;color:var(--mid);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase}
 
 /* Right photo panel */
-.hero-right{position:relative;overflow:hidden}
+.hero-right{position:relative;overflow:hidden;min-height:100%}
 .hero-photo{width:100%;height:100%;object-fit:cover;object-position:center top;filter:contrast(1.08) saturate(1.1)}
 /* Colour overlay on photo */
 .hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,45,85,0.15) 0%,transparent 50%,rgba(0,240,255,0.08) 100%);z-index:1;pointer-events:none;mix-blend-mode:screen}
@@ -107,13 +107,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:64px;d
 .gallery-note{font-size:14px;font-weight:300;color:var(--mid);max-width:260px;line-height:1.6}
 
 /* Bento grid */
-.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:320px 260px;gap:8px;padding:0 80px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:8px;padding:0 80px}
 .bento-item{position:relative;overflow:hidden;background:#111;cursor:none}
-.bento-item:nth-child(1){grid-column:1/6;grid-row:1}
-.bento-item:nth-child(2){grid-column:6/13;grid-row:1}
-.bento-item:nth-child(3){grid-column:1/4;grid-row:2}
-.bento-item:nth-child(4){grid-column:4/8;grid-row:2}
-.bento-item:nth-child(5){grid-column:8/13;grid-row:2}
+.bento-item:nth-child(1){grid-column:1/6;grid-row:1;height:320px}
+.bento-item:nth-child(2){grid-column:6/13;grid-row:1;height:320px}
+.bento-item:nth-child(3){grid-column:1/4;grid-row:2;height:260px}
+.bento-item:nth-child(4){grid-column:4/8;grid-row:2;height:260px}
+.bento-item:nth-child(5){grid-column:8/13;grid-row:2;height:260px}
 
 .bento-item img,.bento-item video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94)}
 .bento-item:hover img,.bento-item:hover video{transform:scale(1.05)}
@@ -128,7 +128,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:64px;d
 
 /* Video reel strip */
 .reel{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:8px 80px 0;margin-top:0}
-.reel-item{position:relative;overflow:hidden;background:#111;aspect-ratio:9/16;cursor:none}
+.reel-item{position:relative;overflow:hidden;background:#111;aspect-ratio:9/16;min-height:280px;cursor:none}
 .reel-item video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
 .reel-item:hover video{transform:scale(1.06)}
 .reel-item::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--hot);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;z-index:2}
@@ -233,6 +233,33 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
   body{cursor:auto}
   .cur,.cur-r{display:none}
 }
+
+/* CONTACT BUTTONS */
+.contact-btns{display:flex;flex-direction:column;gap:12px}
+.cbtn{display:flex;align-items:center;gap:14px;padding:20px 28px;border-radius:8px;text-decoration:none;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.04em;transition:all 0.22s;border:none;cursor:none;width:100%}
+.cbtn-tg{background:var(--hot);color:#fff;box-shadow:0 0 40px rgba(255,45,85,0.25)}
+.cbtn-tg:hover{background:#ff0040;transform:translateY(-2px);box-shadow:0 0 60px rgba(255,45,85,0.45)}
+.cbtn-li{background:rgba(255,255,255,0.06);color:var(--white);border:1.5px solid rgba(255,255,255,0.12)}
+.cbtn-li:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);transform:translateY(-2px)}
+.cbtn-em{background:transparent;color:var(--mid);border:1.5px solid rgba(255,255,255,0.07)}
+.cbtn-em:hover{color:var(--white);border-color:rgba(255,255,255,0.2)}
+.cbtn-icon{font-size:20px;flex-shrink:0}
+.cbtn-text{}
+.cbtn-label{font-size:9px;font-weight:500;letter-spacing:0.1em;opacity:0.6;display:block;margin-bottom:2px;text-transform:uppercase}
+.cbtn-val{font-size:13px;font-weight:700}
+.contact-note{font-size:12px;font-weight:300;color:var(--mid);margin-top:16px;line-height:1.6}
+
+/* Nav social links */
+.nav-socials{display:flex;gap:10px;align-items:center}
+.nav-soc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:var(--mid);text-decoration:none;font-size:15px;transition:all 0.2s;flex-shrink:0}
+.nav-soc:hover{border-color:var(--hot);color:var(--hot)}
+
+/* Fix bento image heights */
+.bento-item{min-height:200px}
+.reel-item{min-height:160px}
+
+/* Fix hero min-height on photo side */
+.hero-right{min-height:400px}
 </style>
 </head>
 <body>
@@ -249,7 +276,11 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
     <li><a href="#services">Services</a></li>
     <li><a href="#exp">Experience</a></li>
   </ul>
-  <a class="nav-btn" href="#contact">Hire me →</a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a class="nav-soc" href="https://t.me/khami_val" target="_blank" rel="noopener" title="Telegram">✈</a>
+    <a class="nav-soc" href="https://www.linkedin.com/in/valeriia-khamidullina-4037443b3/" target="_blank" rel="noopener" title="LinkedIn" style="font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700">in</a>
+    <a class="nav-btn" href="#contact">Hire me →</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -263,8 +294,7 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
       <span class="lime">AI.</span>
     </h1>
     <p class="hero-sub">
-      <strong>Валерія Хамідулліна</strong> — строю системы, которые производят контент.<br>
-      iGaming, Motion, AI-пайплайны. Kyiv.
+      <strong>Валерия Хамидуллина</strong> — строю системы, которые производят контент.<br>iGaming, Motion, AI-пайплайны. Kyiv.
     </p>
     <div class="hero-actions">
       <a class="btn-hot" href="#work">Смотреть работы ↓</a>
@@ -328,7 +358,7 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
       <div class="sec-label">Портфолио</div>
       <h2 class="sec-h">SELECTED<br><em>WORKS</em></h2>
     </div>
-    <p class="gallery-note">iGaming баннеры, motion video, AI-унікалізація — для міжнародних ринків</p>
+    <p class="gallery-note">iGaming баннеры, motion video, AI-уникализация — для международных рынков</p>
   </div>
 
   <div class="bento">
@@ -443,7 +473,7 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
           <div class="skill-card">
             <div class="skill-icon">⚡</div>
             <div class="skill-name">Motion Design</div>
-            <div class="skill-desc">After Effects, композитинг, анімація iGaming та медіа</div>
+            <div class="skill-desc">After Effects, композитинг, анимация iGaming и медиа</div>
             <div class="skill-level">Advanced</div>
           </div>
           <div class="skill-card">
@@ -455,7 +485,7 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
           <div class="skill-card">
             <div class="skill-icon">👥</div>
             <div class="skill-name">Team Lead</div>
-            <div class="skill-desc">Масштабування, менторство, KPI-аналітика, QC</div>
+            <div class="skill-desc">Масштабирование, менторство, KPI-аналитика, QC</div>
             <div class="skill-level">Lead</div>
           </div>
           <div class="skill-card">
@@ -492,14 +522,14 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
         <div class="svc-num">02</div>
         <div class="svc-icon">🤖</div>
         <div class="svc-name">AI Production</div>
-        <div class="svc-desc">Побудова локальних пайплайнів у ComfyUI (ReActor, LivePortrait), унікалізація контенту, оптимізація VRAM. Прискорення виробництва в рази.</div>
+        <div class="svc-desc">Построение локальных пайплайнов в ComfyUI (ReActor, LivePortrait), уникализация контента, оптимизация VRAM. Ускорение производства в разы.</div>
         <div class="svc-tags"><span class="tag">ComfyUI</span><span class="tag">Stable Diffusion</span><span class="tag">AI Workflows</span></div>
       </div>
       <div class="svc-card reveal">
         <div class="svc-num">03</div>
         <div class="svc-icon">🚀</div>
         <div class="svc-name">Creative Lead</div>
-        <div class="svc-desc">Масштабування команди з 1 до 7+ спеціалістів, впровадження KPI-аналітики, система навчання, фінальний QC і стратегічний розвиток візуальної комунікації.</div>
+        <div class="svc-desc">Масштабирование команды с 1 до 7+ специалистов, внедрение KPI-аналитики, система обучения, финальный QC и стратегическое развитие визуальной коммуникации.</div>
         <div class="svc-tags"><span class="tag">Team Management</span><span class="tag">Analytics</span><span class="tag">Mentoring</span></div>
       </div>
     </div>
@@ -515,17 +545,17 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
     </div>
     <div class="exp-item reveal">
       <div>
-        <div class="exp-period">Квітень 2025<br>— Січень 2026</div>
+        <div class="exp-period">Апрель 2025<br>— Январь 2026</div>
       </div>
       <div>
         <div class="exp-role">Creative Lead / Lead Motion Designer</div>
-        <div class="exp-place">EMBR Studio</div>
+        <div class="exp-place">AdMatrix</div>
         <ul class="exp-bullets">
-          <li>Побудувала відділ дизайну з нуля, забезпечивши ріст команди до 7 осіб без втрати якості.</li>
-          <li>Розробила та впровадила систему внутрішньої аналітики для контролю якості та KPI команди.</li>
-          <li>Інтегрувала AI-інструменти в робочий процес — виробництво унікального контенту прискорилось у рази.</li>
-          <li>Відповідала за фінальний Quality Control та стратегічний розвиток візуальної комунікації бренду.</li>
-          <li>Створила автономну систему навчання для швидкого виведення нових спеціалістів на пік ефективності.</li>
+          <li>Построила отдел дизайна с нуля, обеспечив рост команды до 7 человек без потери качества.</li>
+          <li>Разработала и внедрила систему внутренней аналитики для контроля качества и KPI команды.</li>
+          <li>Интегрировала AI-инструменты в рабочий процесс — производство уникального контента ускорилось в разы.</li>
+          <li>Отвечала за финальный Quality Control и стратегическое развитие визуальной коммуникации бренда.</li>
+          <li>Создала автономную систему обучения для быстрого вывода новых специалистов на пик эффективности.</li>
         </ul>
       </div>
     </div>
@@ -551,26 +581,35 @@ footer{padding:32px 80px;border-top:1px solid var(--border);display:flex;align-i
   <div class="wrap">
     <div class="contact-inner">
       <div class="reveal">
+        <div class="sec-label">Контакты</div>
         <h2 class="contact-h">LET'S<br><em>WORK.</em></h2>
-        <p class="contact-sub">Відкрита до нових проєктів, колаборацій та ролі Creative Lead / Art Director у сильній команді.</p>
+        <p class="contact-sub">Открыта к новым проектам, коллаборациям и роли Creative Lead / Art Director в сильной команде.</p>
       </div>
-      <div class="contact-links reveal">
-        <a class="contact-link" href="mailto:khamidullinavaleriia@gmail.com">
-          <div><div class="cl-label">Email</div><div class="cl-value">khamidullinavaleriia@gmail.com</div></div>
-          <div class="cl-arrow">→</div>
-        </a>
-        <a class="contact-link" href="tel:+380738761852">
-          <div><div class="cl-label">Телефон</div><div class="cl-value">+38 073 876 18 52</div></div>
-          <div class="cl-arrow">→</div>
-        </a>
-        <a class="contact-link" href="https://linkedin.com/in/valeriia-khamidullina" target="_blank" rel="noopener">
-          <div><div class="cl-label">LinkedIn</div><div class="cl-value">Valeriia Khamidullina</div></div>
-          <div class="cl-arrow">→</div>
-        </a>
-        <a class="contact-link" href="#">
-          <div><div class="cl-label">Мови</div><div class="cl-value">Ukrainian · English · Czech</div></div>
-          <div class="cl-arrow">→</div>
-        </a>
+      <div class="reveal">
+        <div class="contact-btns">
+          <a class="cbtn cbtn-tg" href="https://t.me/khami_val" target="_blank" rel="noopener">
+            <span class="cbtn-icon">✈</span>
+            <span class="cbtn-text">
+              <span class="cbtn-label">Написать напрямую</span>
+              <span class="cbtn-val">Telegram</span>
+            </span>
+          </a>
+          <a class="cbtn cbtn-li" href="https://www.linkedin.com/in/valeriia-khamidullina-4037443b3/" target="_blank" rel="noopener">
+            <span class="cbtn-icon">in</span>
+            <span class="cbtn-text">
+              <span class="cbtn-label">Профиль</span>
+              <span class="cbtn-val">LinkedIn</span>
+            </span>
+          </a>
+          <a class="cbtn cbtn-em" href="mailto:khamidullinavaleriia@gmail.com">
+            <span class="cbtn-icon">@</span>
+            <span class="cbtn-text">
+              <span class="cbtn-label">Email</span>
+              <span class="cbtn-val">khamidullinavaleriia@gmail.com</span>
+            </span>
+          </a>
+        </div>
+        <p class="contact-note">Украина · Ukrainian, English, Czech<br>+38 063 876 18 34</p>
       </div>
     </div>
   </div>
