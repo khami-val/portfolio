@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-lang="ru">
+<html lang="uk" data-lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,8 +93,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;display:flex;ali
 /* ═══════════════════════════════════════════════════════
    LANG SWITCH
    ═══════════════════════════════════════════════════════ */
-[data-ru],[data-en]{display:none}
-html[data-lang="ru"] [data-ru]{display:revert}
+[data-uk],[data-en]{display:none}
+html[data-lang="uk"] [data-uk]{display:revert}
 html[data-lang="en"] [data-en]{display:revert}
 
 /* ═══════════════════════════════════════════════════════
@@ -422,13 +422,13 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
 
 <!-- ── MOBILE MENU ── -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#work" onclick="closeMob()"><span data-ru>Работы</span><span data-en>Works</span></a>
-  <a href="#about" onclick="closeMob()"><span data-ru>О себе</span><span data-en>About</span></a>
-  <a href="#exp" onclick="closeMob()"><span data-ru>Опыт</span><span data-en>Experience</span></a>
-  <a href="#contact" onclick="closeMob()"><span data-ru>Контакты</span><span data-en>Contact</span></a>
+  <a href="#work" onclick="closeMob()"><span data-uk>Роботи</span><span data-en>Works</span></a>
+  <a href="#about" onclick="closeMob()"><span data-uk>Про мене</span><span data-en>About</span></a>
+  <a href="#exp" onclick="closeMob()"><span data-uk>Досвід</span><span data-en>Experience</span></a>
+  <a href="#contact" onclick="closeMob()"><span data-uk>Контакти</span><span data-en>Contact</span></a>
   <div class="mobile-bottom">
     <div class="lang-toggle">
-      <button class="lang-btn active" id="mob-ru" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn active" id="mob-uk" onclick="setLang('uk')">UA</button>
       <button class="lang-btn" id="mob-en" onclick="setLang('en')">EN</button>
     </div>
     <a class="nav-btn" href="https://t.me/khami_val" target="_blank" rel="noopener">Telegram →</a>
@@ -442,14 +442,14 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
     VK<em>.</em>
   </a>
   <ul class="nav-links">
-    <li><a href="#work"><span data-ru>Работы</span><span data-en>Works</span></a></li>
-    <li><a href="#about"><span data-ru>О себе</span><span data-en>About</span></a></li>
-    <li><a href="#exp"><span data-ru>Опыт</span><span data-en>Experience</span></a></li>
-    <li><a href="#contact"><span data-ru>Контакты</span><span data-en>Contact</span></a></li>
+    <li><a href="#work"><span data-uk>Роботи</span><span data-en>Works</span></a></li>
+    <li><a href="#about"><span data-uk>Про мене</span><span data-en>About</span></a></li>
+    <li><a href="#exp"><span data-uk>Досвід</span><span data-en>Experience</span></a></li>
+    <li><a href="#contact"><span data-uk>Контакти</span><span data-en>Contact</span></a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-toggle desk">
-      <button class="lang-btn active" id="nav-ru" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn active" id="nav-uk" onclick="setLang('uk')">UA</button>
       <button class="lang-btn" id="nav-en" onclick="setLang('en')">EN</button>
     </div>
     <a class="nav-soc" href="https://t.me/khami_val" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">
@@ -458,7 +458,7 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
     <a class="nav-soc" href="https://www.linkedin.com/in/valeriia-khamidullina-4037443b3/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5H3.5V21h3zM5 3.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM21 13.6c0-3.4-1.8-5.3-4.6-5.3-1.7 0-2.8.9-3.3 1.8V8.5H10V21h3.1v-6.2c0-1.7.6-2.8 2.2-2.8 1.5 0 2.1 1 2.1 2.8V21H21z"/></svg>
     </a>
-    <a class="nav-btn" href="#contact"><span data-ru>Написать</span><span data-en>Hire me</span></a>
+    <a class="nav-btn" href="#contact"><span data-uk>Написати</span><span data-en>Hire me</span></a>
     <button class="hamburger" id="hamburger" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -466,21 +466,21 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag"><i></i><span data-ru>Открыта к работе · 2026</span><span data-en>Available for work · 2026</span></div>
+    <div class="hero-tag"><i></i><span data-uk>Відкрита до роботи · 2026</span><span data-en>Available for work · 2026</span></div>
     <h1 class="hero-h">
       Motion<br>Designer<br><span class="x">×</span> <span class="blue">AI</span><br>Explorer
     </h1>
     <p class="hero-sub lead">
-      <strong>Valeriia Khamidullina</strong> — <span data-ru>motion-дизайнер, который превращает AI-инструменты в рабочие пайплайны для performance-креативов. Не «сгенерировать картинку», а собрать систему, которая выдаёт результат каждый день.</span><span data-en>a motion designer who turns AI tools into working pipelines for performance creatives. Not "generate a picture" — build a system that ships results every day.</span>
+      <strong>Valeriia Khamidullina</strong> — <span data-uk>motion-дизайнерка, яка перетворює AI-інструменти на робочі пайплайни для performance-креативів. Не «згенерувати картинку», а зібрати систему, що видає результат щодня.</span><span data-en>a motion designer who turns AI tools into working pipelines for performance creatives. Not "generate a picture" — build a system that ships results every day.</span>
     </p>
     <div class="hero-actions">
-      <a class="btn btn-ink" href="#work"><span data-ru>Смотреть работы</span><span data-en>View works</span> <span>↓</span></a>
-      <a class="btn btn-line" href="#contact"><span data-ru>Написать</span><span data-en>Get in touch</span></a>
+      <a class="btn btn-ink" href="#work"><span data-uk>Дивитися роботи</span><span data-en>View works</span> <span>↓</span></a>
+      <a class="btn btn-line" href="#contact"><span data-uk>Написати</span><span data-en>Get in touch</span></a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-num">2<em>y</em></div><div class="stat-label"><span data-ru>Lead-опыт</span><span data-en>Lead experience</span></div></div>
-      <div><div class="stat-num">7<em>+</em></div><div class="stat-label"><span data-ru>человек в команде</span><span data-en>team members</span></div></div>
-      <div><div class="stat-num">6</div><div class="stat-label"><span data-ru>AI-инструментов в пайплайне</span><span data-en>AI tools in pipeline</span></div></div>
+      <div><div class="stat-num">2<em>y</em></div><div class="stat-label"><span data-uk>Lead-досвід</span><span data-en>Lead experience</span></div></div>
+      <div><div class="stat-num">7<em>+</em></div><div class="stat-label"><span data-uk>людей у команді</span><span data-en>team members</span></div></div>
+      <div><div class="stat-num">6</div><div class="stat-label"><span data-uk>AI-інструментів у пайплайні</span><span data-en>AI tools in pipeline</span></div></div>
     </div>
   </div>
   <div class="hero-right">
@@ -506,10 +506,10 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
   <div class="wrap">
     <div class="works-head reveal">
       <div>
-        <div class="sec-label"><svg class="wv" viewBox="0 0 34 10"><path d="M1 5c4-5 7-5 11 0s7 5 11 0 7-5 10 0"/></svg><span data-ru>Работы</span><span data-en>Works</span></div>
+        <div class="sec-label"><svg class="wv" viewBox="0 0 34 10"><path d="M1 5c4-5 7-5 11 0s7 5 11 0 7-5 10 0"/></svg><span data-uk>Роботи</span><span data-en>Works</span></div>
         <h2 class="sec-h">Selected<br><em>Works</em></h2>
       </div>
-      <p class="works-note"><span data-ru>Performance-креативы и AI-эксперименты — в приоритете. iGaming-архив — ниже, как бэкграунд.</span><span data-en>Performance creatives and AI experiments come first. The iGaming archive sits below as background.</span></p>
+      <p class="works-note"><span data-uk>Performance-креативи та AI-експерименти — у пріоритеті. iGaming-архів — нижче, як бекґраунд.</span><span data-en>Performance creatives and AI experiments come first. The iGaming archive sits below as background.</span></p>
     </div>
 
     <!-- Performance & AI Creative -->
@@ -527,9 +527,9 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
       <button class="archive-toggle" id="archiveToggle" aria-expanded="false" aria-controls="archiveBody">
         <div class="l">
           <div class="block-title">iGaming Archive</div>
-          <div class="meta"><span data-ru>2025–2026 · баннеры и motion для международных рынков — бэкграунд, на котором вырос системный подход.</span><span data-en>2025–2026 · banners and motion for international markets — the background where the systematic approach was built.</span></div>
+          <div class="meta"><span data-uk>2025–2026 · банери та motion для міжнародних ринків — бекґраунд, на якому виріс системний підхід.</span><span data-en>2025–2026 · banners and motion for international markets — the background where the systematic approach was built.</span></div>
         </div>
-        <span class="chip"><span class="tg-show"><span data-ru>Показать</span><span data-en>Show</span></span><span class="tg-hide"><span data-ru>Скрыть</span><span data-en>Hide</span></span> <span id="archiveCount"></span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 4.5 6 8.5l4-4"/></svg></span>
+        <span class="chip"><span class="tg-show"><span data-uk>Показати</span><span data-en>Show</span></span><span class="tg-hide"><span data-uk>Сховати</span><span data-en>Hide</span></span> <span id="archiveCount"></span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 4.5 6 8.5l4-4"/></svg></span>
       </button>
       <div class="archive-body" id="archiveBody"><div>
         <div class="archive-grid" id="archiveGrid"></div>
@@ -546,43 +546,43 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
   <div class="wrap">
     <div class="about-inner">
       <div class="reveal">
-        <div class="sec-label"><svg class="wv" viewBox="0 0 34 10"><path d="M1 5c4-5 7-5 11 0s7 5 11 0 7-5 10 0"/></svg><span data-ru>О себе</span><span data-en>About</span></div>
+        <div class="sec-label"><svg class="wv" viewBox="0 0 34 10"><path d="M1 5c4-5 7-5 11 0s7 5 11 0 7-5 10 0"/></svg><span data-uk>Про мене</span><span data-en>About</span></div>
         <h2 class="sec-h">Who<br>am<br><em>I?</em></h2>
         <div class="about-quote">
-          <span data-ru>AI для меня — не кнопка «сделать красиво», а материал, из которого собирают системы.</span>
+          <span data-uk>AI для мене — не кнопка «зробити гарно», а матеріал, з якого збирають системи.</span>
           <span data-en>To me AI isn't a "make it pretty" button — it's a material you build systems from.</span>
         </div>
         <svg class="drop-mark" viewBox="0 0 44 52"><path d="M22 3C22 3 6 21 6 32a16 16 0 0 0 32 0C38 21 22 3 22 3Z"/><path d="M14 33c0 4 3 7 7 7"/></svg>
       </div>
       <div class="reveal">
         <p class="about-p">
-          <span data-ru><strong>Motion Designer × AI Explorer.</strong> Собираю пайплайны из After Effects, ComfyUI и генеративных моделей, чтобы performance-креативы делались быстрее, а вариантов для тестов было десятки, а не единицы. Меня интересует не сам инструмент, а то, как он встраивается в производство.</span>
+          <span data-uk><strong>Motion Designer × AI Explorer.</strong> Збираю пайплайни з After Effects, ComfyUI та генеративних моделей, щоб performance-креативи робилися швидше, а варіантів для тестів було десятки, а не одиниці. Мене цікавить не сам інструмент, а те, як він вбудовується у виробництво.</span>
           <span data-en><strong>Motion Designer × AI Explorer.</strong> I build pipelines out of After Effects, ComfyUI and generative models so performance creatives ship faster and test variants come in dozens, not singles. What interests me isn't the tool itself, but how it fits into production.</span>
         </p>
         <p class="about-p">
-          <span data-ru>За два года в роли lead — построила дизайн-отдел с нуля до <strong>7+ специалистов</strong>, ввела внутреннюю <strong>KPI-аналитику</strong> и перевела AI-инструменты из экспериментов в ежедневный процесс. Сейчас фокус — генеративное видео и то, как превращать его в рабочие системы для маркетинга.</span>
+          <span data-uk>За два роки в ролі lead — побудувала дизайн-відділ з нуля до <strong>7+ спеціалістів</strong>, запровадила внутрішню <strong>KPI-аналітику</strong> та перевела AI-інструменти з експериментів у щоденний процес. Зараз фокус — генеративне відео і те, як перетворювати його на робочі системи для маркетингу.</span>
           <span data-en>Two years as a lead: built a design department from scratch to <strong>7+ specialists</strong>, introduced internal <strong>KPI analytics</strong> and moved AI tools from experiments into the daily process. Current focus — generative video and turning it into working systems for marketing.</span>
         </p>
 
         <div class="ai-tools">
           <div class="ai-tools-head">
-            <div class="t"><span data-ru>AI-инструменты</span><span data-en>AI toolkit</span></div>
-            <div class="s"><span data-ru>в продакшене</span><span data-en>in production</span></div>
+            <div class="t"><span data-uk>AI-інструменти</span><span data-en>AI toolkit</span></div>
+            <div class="s"><span data-uk>у продакшені</span><span data-en>in production</span></div>
           </div>
           <div class="ai-tools-grid">
-            <div class="ai-tool hl"><span class="dot"></span><div><div class="n">Higgsfield</div><div class="d"><span data-ru>Генеративное видео, движения камеры, motion-референсы</span><span data-en>Generative video, camera moves, motion references</span></div></div></div>
-            <div class="ai-tool hl"><span class="dot"></span><div><div class="n">ComfyUI</div><div class="d"><span data-ru>Нодовые пайплайны, batch-генерация, контроль стиля</span><span data-en>Node pipelines, batch generation, style control</span></div></div></div>
-            <div class="ai-tool"><span class="dot"></span><div><div class="n">Stable Diffusion</div><div class="d"><span data-ru>Изображения, LoRA, консистентность персонажей</span><span data-en>Image generation, LoRA, character consistency</span></div></div></div>
-            <div class="ai-tool"><span class="dot"></span><div><div class="n">LivePortrait</div><div class="d"><span data-ru>Лицевая анимация из статики</span><span data-en>Facial animation from stills</span></div></div></div>
-            <div class="ai-tool"><span class="dot"></span><div><div class="n">ReActor</div><div class="d"><span data-ru>Face swap, единый персонаж на серии креативов</span><span data-en>Face swap, one character across a creative series</span></div></div></div>
-            <div class="ai-tool"><span class="dot"></span><div><div class="n">Topaz Video AI</div><div class="d"><span data-ru>Апскейл, интерполяция кадров, финальная чистка</span><span data-en>Upscale, frame interpolation, final cleanup</span></div></div></div>
+            <div class="ai-tool hl"><span class="dot"></span><div><div class="n">Higgsfield</div><div class="d"><span data-uk>Генеративне відео, рухи камери, motion-референси</span><span data-en>Generative video, camera moves, motion references</span></div></div></div>
+            <div class="ai-tool hl"><span class="dot"></span><div><div class="n">ComfyUI</div><div class="d"><span data-uk>Нодові пайплайни, batch-генерація, контроль стилю</span><span data-en>Node pipelines, batch generation, style control</span></div></div></div>
+            <div class="ai-tool"><span class="dot"></span><div><div class="n">Stable Diffusion</div><div class="d"><span data-uk>Зображення, LoRA, консистентність персонажів</span><span data-en>Image generation, LoRA, character consistency</span></div></div></div>
+            <div class="ai-tool"><span class="dot"></span><div><div class="n">LivePortrait</div><div class="d"><span data-uk>Лицьова анімація зі статики</span><span data-en>Facial animation from stills</span></div></div></div>
+            <div class="ai-tool"><span class="dot"></span><div><div class="n">ReActor</div><div class="d"><span data-uk>Face swap, єдиний персонаж на серії креативів</span><span data-en>Face swap, one character across a creative series</span></div></div></div>
+            <div class="ai-tool"><span class="dot"></span><div><div class="n">Topaz Video AI</div><div class="d"><span data-uk>Апскейл, інтерполяція кадрів, фінальне чищення</span><span data-en>Upscale, frame interpolation, final cleanup</span></div></div></div>
           </div>
         </div>
 
         <div class="skills">
-          <div class="skill"><div class="skill-name">Motion Design <span class="skill-lvl">Advanced</span></div><div class="skill-desc"><span data-ru>After Effects, композитинг, анимация для performance-рекламы и соцсетей</span><span data-en>After Effects, compositing, animation for performance ads and social</span></div></div>
-          <div class="skill"><div class="skill-name">AI Production <span class="skill-lvl">Expert</span></div><div class="skill-desc"><span data-ru>Пайплайны из генеративных инструментов под задачи маркетинга</span><span data-en>Generative-tool pipelines built for marketing tasks</span></div></div>
-          <div class="skill"><div class="skill-name">Team Lead <span class="skill-lvl">Lead</span></div><div class="skill-desc"><span data-ru>Масштабирование, менторство, KPI-аналитика, quality control</span><span data-en>Scaling, mentoring, KPI analytics, quality control</span></div></div>
+          <div class="skill"><div class="skill-name">Motion Design <span class="skill-lvl">Advanced</span></div><div class="skill-desc"><span data-uk>After Effects, композитинг, анімація для performance-реклами та соцмереж</span><span data-en>After Effects, compositing, animation for performance ads and social</span></div></div>
+          <div class="skill"><div class="skill-name">AI Production <span class="skill-lvl">Expert</span></div><div class="skill-desc"><span data-uk>Пайплайни з генеративних інструментів під задачі маркетингу</span><span data-en>Generative-tool pipelines built for marketing tasks</span></div></div>
+          <div class="skill"><div class="skill-name">Team Lead <span class="skill-lvl">Lead</span></div><div class="skill-desc"><span data-uk>Масштабування, менторство, KPI-аналітика, quality control</span><span data-en>Scaling, mentoring, KPI analytics, quality control</span></div></div>
           <div class="skill"><div class="skill-name">Design Tools <span class="skill-lvl">Proficient</span></div><div class="skill-desc">Photoshop, Figma, Premiere Pro, Notion, Jira</div></div>
         </div>
       </div>
@@ -596,25 +596,25 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
 <section class="exp-sec" id="exp">
   <div class="wrap">
     <div class="reveal" style="margin-bottom:48px">
-      <div class="sec-label"><svg class="wv" viewBox="0 0 34 10"><path d="M1 5c4-5 7-5 11 0s7 5 11 0 7-5 10 0"/></svg><span data-ru>Опыт</span><span data-en>Experience</span></div>
+      <div class="sec-label"><svg class="wv" viewBox="0 0 34 10"><path d="M1 5c4-5 7-5 11 0s7 5 11 0 7-5 10 0"/></svg><span data-uk>Досвід</span><span data-en>Experience</span></div>
       <h2 class="sec-h">Experience</h2>
     </div>
     <div class="exp-item reveal">
-      <div class="exp-period"><b><span data-ru>Апрель 2025</span><span data-en>April 2025</span></b><span data-ru>— Январь 2026</span><span data-en>— January 2026</span></div>
+      <div class="exp-period"><b><span data-uk>Квітень 2025</span><span data-en>April 2025</span></b><span data-uk>— Січень 2026</span><span data-en>— January 2026</span></div>
       <div>
         <div class="exp-role">Creative Lead / Lead Motion Designer</div>
         <div class="exp-place">AdMatrix</div>
         <ul class="exp-bullets">
-          <li><span data-ru>Построила дизайн-отдел с нуля — команда выросла до 7 человек без потери качества.</span><span data-en>Built the design department from scratch — the team grew to 7 people without losing quality.</span></li>
-          <li><span data-ru>Разработала и внедрила систему внутренней аналитики для контроля качества и KPI команды.</span><span data-en>Designed and rolled out an internal analytics system for quality control and team KPIs.</span></li>
-          <li><span data-ru>Интегрировала AI-инструменты в производство — скорость выпуска уникальных креативов выросла в разы.</span><span data-en>Integrated AI tools into production — unique creative output multiplied in speed.</span></li>
-          <li><span data-ru>Отвечала за финальный quality control и стратегию визуальной коммуникации бренда.</span><span data-en>Owned final quality control and the brand's visual communication strategy.</span></li>
-          <li><span data-ru>Создала автономную систему онбординга, выводящую новых специалистов на рабочий темп за недели, а не месяцы.</span><span data-en>Created a self-running onboarding system bringing new specialists up to speed in weeks, not months.</span></li>
+          <li><span data-uk>Побудувала дизайн-відділ з нуля — команда виросла до 7 людей без втрати якості.</span><span data-en>Built the design department from scratch — the team grew to 7 people without losing quality.</span></li>
+          <li><span data-uk>Розробила та впровадила систему внутрішньої аналітики для контролю якості та KPI команди.</span><span data-en>Designed and rolled out an internal analytics system for quality control and team KPIs.</span></li>
+          <li><span data-uk>Інтегрувала AI-інструменти у виробництво — швидкість випуску унікальних креативів зросла в рази.</span><span data-en>Integrated AI tools into production — unique creative output multiplied in speed.</span></li>
+          <li><span data-uk>Відповідала за фінальний quality control і стратегію візуальної комунікації бренду.</span><span data-en>Owned final quality control and the brand's visual communication strategy.</span></li>
+          <li><span data-uk>Створила автономну систему онбордингу, що виводить нових спеціалістів на робочий темп за тижні, а не місяці.</span><span data-en>Created a self-running onboarding system bringing new specialists up to speed in weeks, not months.</span></li>
         </ul>
         <div class="exp-facts">
-          <span class="fact"><b>7+</b> <span data-ru>специалистов</span><span data-en>specialists</span></span>
-          <span class="fact"><b>KPI</b> <span data-ru>система аналитики</span><span data-en>analytics system</span></span>
-          <span class="fact"><b>AI</b> <span data-ru>в ежедневном производстве</span><span data-en>in daily production</span></span>
+          <span class="fact"><b>7+</b> <span data-uk>спеціалістів</span><span data-en>specialists</span></span>
+          <span class="fact"><b>KPI</b> <span data-uk>система аналітики</span><span data-en>analytics system</span></span>
+          <span class="fact"><b>AI</b> <span data-uk>у щоденному виробництві</span><span data-en>in daily production</span></span>
         </div>
       </div>
     </div>
@@ -641,10 +641,10 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
   <div class="wrap">
     <div class="contact-inner">
       <div class="reveal">
-        <div class="sec-label"><svg class="wv" viewBox="0 0 34 10"><path d="M1 5c4-5 7-5 11 0s7 5 11 0 7-5 10 0"/></svg><span data-ru>Контакты</span><span data-en>Contact</span></div>
+        <div class="sec-label"><svg class="wv" viewBox="0 0 34 10"><path d="M1 5c4-5 7-5 11 0s7 5 11 0 7-5 10 0"/></svg><span data-uk>Контакти</span><span data-en>Contact</span></div>
         <h2 class="contact-h">Let's<br><em>work.</em></h2>
         <p class="contact-sub lead">
-          <span data-ru>Открыта к работе как Motion Designer / Creative Lead / AI Creative — в команде, где генеративные инструменты уже стали частью процесса или только собираются стать.</span>
+          <span data-uk>Відкрита до роботи як Motion Designer / Creative Lead / AI Creative — у команді, де генеративні інструменти вже стали частиною процесу або тільки збираються стати.</span>
           <span data-en>Open for work as a Motion Designer / Creative Lead / AI Creative — in a team where generative tools are already part of the process, or are about to be.</span>
         </p>
         <svg class="compass" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"/><circle cx="60" cy="60" r="3"/><path d="M60 14v10M60 96v10M14 60h10M96 60h10"/><path d="M60 24 68 60 60 96 52 60Z"/><path d="M24 60l36-8 36 8-36 8Z"/></svg>
@@ -653,18 +653,18 @@ footer{padding:26px 80px;border-top:1px solid var(--line);display:flex;align-ite
         <div class="contact-btns">
           <a class="cbtn cbtn-tg" href="https://t.me/khami_val" target="_blank" rel="noopener">
             <span class="cbtn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4 3 11.5l6.5 2.2L18 8l-6.2 7.2L11.5 20l3.2-3.6 4.3 2.5z"/></svg></span>
-            <span><span class="cbtn-label"><span data-ru>Написать напрямую</span><span data-en>Write directly</span></span><span class="cbtn-val">Telegram · @khami_val</span></span>
+            <span><span class="cbtn-label"><span data-uk>Написати напряму</span><span data-en>Write directly</span></span><span class="cbtn-val">Telegram · @khami_val</span></span>
           </a>
           <a class="cbtn" href="https://www.linkedin.com/in/valeriia-khamidullina-4037443b3/" target="_blank" rel="noopener">
             <span class="cbtn-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5H3.5V21h3zM5 3.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM21 13.6c0-3.4-1.8-5.3-4.6-5.3-1.7 0-2.8.9-3.3 1.8V8.5H10V21h3.1v-6.2c0-1.7.6-2.8 2.2-2.8 1.5 0 2.1 1 2.1 2.8V21H21z"/></svg></span>
-            <span><span class="cbtn-label"><span data-ru>Профиль</span><span data-en>Profile</span></span><span class="cbtn-val">LinkedIn</span></span>
+            <span><span class="cbtn-label"><span data-uk>Профіль</span><span data-en>Profile</span></span><span class="cbtn-val">LinkedIn</span></span>
           </a>
           <a class="cbtn" href="mailto:khamidullinavaleriia@gmail.com">
             <span class="cbtn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
             <span><span class="cbtn-label">Email</span><span class="cbtn-val">khamidullinavaleriia@gmail.com</span></span>
           </a>
         </div>
-        <p class="contact-note"><span data-ru>Украина · Ukrainian, English, Czech · +38 063 876 18 34</span><span data-en>Ukraine · Ukrainian, English, Czech · +38 063 876 18 34</span></p>
+        <p class="contact-note"><span data-uk>Україна · Ukrainian, English, Czech · +38 063 876 18 34</span><span data-en>Ukraine · Ukrainian, English, Czech · +38 063 876 18 34</span></p>
       </div>
     </div>
   </div>
@@ -696,11 +696,11 @@ const IMG = {
 // Priority block. Placeholders are on purpose — drop real cases here:
 // { type:'video', src:'perf-case-01.mp4', title:'…', tag:'…', size:'c-6' }
 const perfWorks = [
-  { type:'placeholder', size:'c-6', title:{ru:'UGC-style креатив с AI-персонажем',en:'UGC-style creative with an AI character'}, tag:'Performance · Higgsfield · AE', desc:{ru:'Серия вертикальных видео под тест гипотез: один персонаж, десятки вариаций.',en:'A series of verticals for hypothesis testing: one character, dozens of variations.'} },
-  { type:'placeholder', size:'c-3', title:{ru:'Генеративный продукт-шот',en:'Generative product shot'}, tag:'AI · ComfyUI · Motion', desc:{ru:'Продукт в разных сценах без съёмки.',en:'One product, many scenes, no shoot.'} },
-  { type:'placeholder', size:'c-3', title:{ru:'Motion-пакет для performance-кампании',en:'Motion pack for a performance campaign'}, tag:'After Effects · Templates', desc:{ru:'Шаблонная система под быстрые итерации.',en:'A template system built for fast iteration.'} },
-  { type:'placeholder', size:'c-4', title:{ru:'AI-пайплайн: статика → видео',en:'AI pipeline: still → video'}, tag:'Higgsfield · LivePortrait', desc:{ru:'Оживление статичных ассетов.',en:'Bringing static assets to life.'} },
-  { type:'placeholder', size:'c-8', title:{ru:'Кейс с цифрами',en:'Case with numbers'}, tag:'Performance · A/B', desc:{ru:'Креатив + результат теста: CTR / CPI до и после.',en:'Creative + test result: CTR / CPI before and after.'} },
+  { type:'placeholder', size:'c-6', title:{uk:'UGC-style креатив з AI-персонажем',en:'UGC-style creative with an AI character'}, tag:'Performance · Higgsfield · AE', desc:{uk:'Серія вертикальних відео для тесту гіпотез: один персонаж, десятки варіацій.',en:'A series of verticals for hypothesis testing: one character, dozens of variations.'} },
+  { type:'placeholder', size:'c-3', title:{uk:'Генеративний продукт-шот',en:'Generative product shot'}, tag:'AI · ComfyUI · Motion', desc:{uk:'Продукт у різних сценах без зйомки.',en:'One product, many scenes, no shoot.'} },
+  { type:'placeholder', size:'c-3', title:{uk:'Motion-пакет для performance-кампанії',en:'Motion pack for a performance campaign'}, tag:'After Effects · Templates', desc:{uk:'Шаблонна система для швидких ітерацій.',en:'A template system built for fast iteration.'} },
+  { type:'placeholder', size:'c-4', title:{uk:'AI-пайплайн: статика → відео',en:'AI pipeline: still → video'}, tag:'Higgsfield · LivePortrait', desc:{uk:'Оживлення статичних асетів.',en:'Bringing static assets to life.'} },
+  { type:'placeholder', size:'c-8', title:{uk:'Кейс із цифрами',en:'Case with numbers'}, tag:'Performance · A/B', desc:{uk:'Креатив + результат тесту: CTR / CPI до і після.',en:'Creative + test result: CTR / CPI before and after.'} },
 ];
 
 // Background block.
@@ -723,10 +723,11 @@ const marqueeItems = ['After Effects','Higgsfield','ComfyUI','Motion Design','Pe
 function setLang(lang){
   document.documentElement.setAttribute('data-lang',lang);
   document.documentElement.setAttribute('lang',lang);
-  ['nav-ru','nav-en','mob-ru','mob-en'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('active',id.endsWith(lang));});
+  ['nav-uk','nav-en','mob-uk','mob-en'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('active',id.endsWith(lang));});
   try{localStorage.setItem('vk-lang',lang)}catch(e){}
 }
-let savedLang='ru';try{savedLang=localStorage.getItem('vk-lang')||'ru'}catch(e){}
+let savedLang='uk';try{savedLang=localStorage.getItem('vk-lang')||'uk'}catch(e){}
+if(savedLang!=='uk'&&savedLang!=='en')savedLang='uk';
 setLang(savedLang);
 
 /* ── MOBILE MENU ── */
@@ -743,7 +744,7 @@ function closeMob(){document.getElementById('mobileMenu').classList.remove('open
 
 /* ── RENDER WORKS ── */
 const lbWorks=[]; // flat list for the lightbox
-function localized(v){ if(typeof v==='string') return v; return `<span data-ru>${v.ru}</span><span data-en>${v.en}</span>`; }
+function localized(v){ if(typeof v==='string') return v; return `<span data-uk>${v.uk}</span><span data-en>${v.en}</span>`; }
 function cardHTML(w,cls){
   if(w.type==='placeholder'){
     const i=String(perfWorks.indexOf(w)+1).padStart(2,'0');
