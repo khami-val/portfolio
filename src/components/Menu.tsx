@@ -21,12 +21,12 @@ function Burger({ open, onClick }: { open: boolean; onClick: () => void }) {
         aria-expanded={open}
         aria-controls="site-menu"
         onClick={onClick}
-        className="relative flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_8px_24px_-8px_rgba(12,12,12,.35)] transition-transform duration-200 hover:scale-105 active:scale-95"
+        className="relative -mr-2.5 -mt-2 flex h-12 w-12 items-center justify-center transition-opacity duration-200 hover:opacity-60 active:scale-95"
       >
-        <span className="relative block h-3.5 w-5" aria-hidden="true">
-          <span className={`absolute left-0 h-0.5 w-5 rounded bg-[#0C0C0C] transition-all duration-300 ${open ? 'top-1.5 rotate-45' : 'top-0'}`} />
-          <span className={`absolute left-0 top-1.5 h-0.5 w-5 rounded bg-[#0C0C0C] transition-opacity duration-200 ${open ? 'opacity-0' : ''}`} />
-          <span className={`absolute left-0 h-0.5 w-5 rounded bg-[#0C0C0C] transition-all duration-300 ${open ? 'top-1.5 -rotate-45' : 'top-3'}`} />
+        <span className="relative block h-3.5 w-7" aria-hidden="true">
+          <span className={`absolute left-0 h-0.5 w-7 rounded bg-[#0C0C0C] transition-all duration-300 ${open ? 'top-1.5 rotate-45' : 'top-0'}`} />
+          <span className={`absolute left-0 top-1.5 h-0.5 w-7 rounded bg-[#0C0C0C] transition-opacity duration-200 ${open ? 'opacity-0' : ''}`} />
+          <span className={`absolute left-0 h-0.5 w-7 rounded bg-[#0C0C0C] transition-all duration-300 ${open ? 'top-1.5 -rotate-45' : 'top-3'}`} />
         </span>
       </button>
   )
