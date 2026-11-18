@@ -100,7 +100,7 @@ export default function Hero() {
             <div aria-hidden="true" className="absolute inset-[10%_8%_0] -z-10 rounded-full blur-3xl" style={{ background: 'radial-gradient(closest-side, rgba(182,0,168,.28), rgba(118,33,176,.12) 60%, transparent 80%)' }} />
             <motion.img
               src={avatar}
-              alt="Валерія, засновниця EMBR"
+              alt="Валерія, засновниця khami.studio"
               width={848}
               height={1200}
               draggable={false}
