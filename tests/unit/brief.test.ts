@@ -18,7 +18,7 @@ describe('validateBrief', () => {
 describe('buildBriefMessage', () => {
   it('includes only the filled fields', () => {
     const msg = buildBriefMessage({ ...empty, name: ' Олена ', contact: '@olena' }, [])
-    expect(msg).toBe("Привіт! Заявка з сайту EMBR\nІм'я: Олена\nКонтакт: @olena")
+    expect(msg).toBe("Привіт! Заявка з сайту khami.studio\nІм'я: Олена\nКонтакт: @olena")
   })
   it('lists needs and task', () => {
     const msg = buildBriefMessage({ name: 'Олена', contact: '@olena', business: 'Салон, Київ', message: 'Хочу бота' }, ['Сайт', 'ШІ-адміністратор'])

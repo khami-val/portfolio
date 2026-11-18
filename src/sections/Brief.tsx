@@ -3,9 +3,8 @@ import { Check, Send } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 import RevealHeading from '../components/RevealHeading'
 import { TELEGRAM } from '../components/Buttons'
-import { buildBriefMessage, telegramLink, validateBrief, type BriefFields, type BriefErrors } from '../lib/brief'
+import { NEEDS, buildBriefMessage, telegramLink, validateBrief, type BriefFields, type BriefErrors } from '../lib/brief'
 
-const NEEDS = ['Сайт', 'ШІ-адміністратор', 'Рекламне відео', 'Під ключ']
 const EMAIL = 'khamidullinavaleriia@gmail.com'
 
 type Fields = BriefFields
@@ -59,18 +58,27 @@ export default function Brief() {
   const [f, setF] = useState<Fields>({ name: '', contact: '', business: '', message: '' })
   const [needs, setNeeds] = useState<string[]>([])
   const [errors, setErrors] = useState<BriefErrors>({})
-  const [sent, setSent] = useState<string | null>(null)
+  const [sent, setSent] = useState<{ msg: string; via: 'bot' | 'manual' } | null>(null)
+  const [sending, setSending] = useState(false)
+  const [website, setWebsite] = useState('')
   const set = (k: keyof Fields) => (v: string) => { setF((p) => ({ ...p, [k]: v })); setErrors((e) => ({ ...e, [k]: undefined })) }
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault()
+    if (sending) return
     const err = validateBrief(f)
     setErrors(err)
     if (Object.keys(err).length) { document.getElementById(`brief-${Object.keys(err)[0]}`)?.focus(); return }
     const msg = buildBriefMessage(f, needs)
-    navigator.clipboard?.writeText(msg).catch(() => {})
-    window.open(telegramLink(TELEGRAM, msg), '_blank', 'noopener')
-    setSent(msg)
+    setSending(true)
+    let ok = false
+    try {
+      const r = await fetch('/api/brief', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ...f, needs, website }) })
+      ok = r.ok
+    } catch { /* offline or no server: fall back to Telegram */ }
+    setSending(false)
+    if (!ok) navigator.clipboard?.writeText(msg).catch(() => {})
+    setSent({ msg, via: ok ? 'bot' : 'manual' })
   }
 
   return (
@@ -86,21 +94,24 @@ export default function Brief() {
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#B600A8] shadow-[0_0_24px_rgba(182,0,168,.5)]">
               <Check className="h-7 w-7" aria-hidden="true" />
             </div>
-            <h3 className="text-2xl font-medium uppercase">Дякую!</h3>
+            <h3 className="text-2xl font-medium uppercase">{sent.via === 'bot' ? 'Заявку отримано!' : 'Майже готово'}</h3>
             <p className="max-w-md font-light text-[#0C0C0C]/70">
-              Відкрила Telegram з готовим повідомленням. Залишилось натиснути «Надіслати». Текст також скопійовано.
+              {sent.via === 'bot'
+                ? 'Дякую! Відповім протягом 15 хвилин у вказаний контакт.'
+                : 'Не вдалося надіслати автоматично. Натисніть кнопку нижче: Telegram відкриється з готовим текстом, залишиться натиснути «Надіслати». Текст також скопійовано.'}
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <a href={telegramLink(TELEGRAM, sent)} target="_blank" rel="noopener" className="rounded-full border-2 border-[#0C0C0C] px-6 py-3 text-sm font-medium uppercase tracking-widest hover:bg-[#0C0C0C]/10">
+            {sent.via === 'manual' && <div className="flex flex-wrap justify-center gap-3">
+              <a href={telegramLink(TELEGRAM, sent.msg)} target="_blank" rel="noopener" className="rounded-full border-2 border-[#0C0C0C] px-6 py-3 text-sm font-medium uppercase tracking-widest hover:bg-[#0C0C0C]/10">
                 Відкрити Telegram
               </a>
-              <a href={`mailto:${EMAIL}?subject=${encodeURIComponent('Бриф з сайту EMBR')}&body=${encodeURIComponent(sent)}`} className="rounded-full border-2 border-[#0C0C0C]/30 px-6 py-3 text-sm font-medium uppercase tracking-widest hover:bg-[#0C0C0C]/10">
+              <a href={`mailto:${EMAIL}?subject=${encodeURIComponent('Бриф з сайту khami.studio')}&body=${encodeURIComponent(sent.msg)}`} className="rounded-full border-2 border-[#0C0C0C]/30 px-6 py-3 text-sm font-medium uppercase tracking-widest hover:bg-[#0C0C0C]/10">
                 Надіслати на email
               </a>
-            </div>
+            </div>}
           </div>
         ) : (
-          <form noValidate onSubmit={submit} className="flex flex-col gap-4">
+          <form noValidate onSubmit={submit} aria-busy={sending} className="flex flex-col gap-4">
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="absolute -left-[9999px] h-px w-px opacity-0" />
             <div className="grid gap-4 sm:grid-cols-2">
               <Field id="name" label="Ваше ім'я" value={f.name} onChange={set('name')} required error={errors.name} autoComplete="name" />
               <Field id="contact" label="Telegram або телефон" value={f.contact} onChange={set('contact')} required error={errors.contact} autoComplete="tel" />
@@ -121,18 +132,19 @@ export default function Brief() {
             <div className="mt-6 flex flex-col items-center gap-4">
               <button
                 type="submit"
-                className="flex items-center gap-3 rounded-full px-10 py-4 text-sm font-medium uppercase tracking-widest text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98] md:text-base"
+                disabled={sending}
+                className="flex disabled:opacity-70 items-center gap-3 rounded-full px-10 py-4 text-sm font-medium uppercase tracking-widest text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98] md:text-base"
                 style={{
                   background: 'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
                   boxShadow: '0px 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721B1 inset',
                   outline: '2px solid #fff', outlineOffset: '-3px',
                 }}
               >
-                <Send className="h-4 w-4" aria-hidden="true" />
-                Надіслати бриф
+                <Send className={`h-4 w-4 ${sending ? 'animate-pulse' : ''}`} aria-hidden="true" />
+                {sending ? 'Надсилаю…' : 'Надіслати бриф'}
               </button>
               <p className="max-w-md text-center text-xs font-light text-[#0C0C0C]/60">
-                Заявка відкриється в Telegram, нічого не зберігається на сайті. Надсилаючи, ви погоджуєтесь з політикою конфіденційності.
+                Заявка приходить мені в Telegram, на сайті нічого не зберігається. Надсилаючи, ви погоджуєтесь з політикою конфіденційності.
               </p>
             </div>
           </form>
