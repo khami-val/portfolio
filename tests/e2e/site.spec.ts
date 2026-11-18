@@ -58,9 +58,8 @@ test('all sections render and every Telegram link is @khami_val', async ({ page 
   await expect(page.locator('footer').getByText('by khami.studio')).toBeAttached()
 })
 
-test('brief form validates and delivers through /api/brief', async ({ page }) => {
-  let posted: Record<string, unknown> | null = null
-  await page.route('**/api/brief', async (r) => { posted = r.request().postDataJSON(); await r.fulfill({ status: 200, json: { ok: true } }) })
+test('brief form validates and opens Telegram with the message', async ({ page, context }) => {
+  await context.route('https://t.me/**', (r) => r.fulfill({ status: 200, body: 'ok' }))
   await skipIntro(page)
   await page.goto('/#brief')
   const send = page.getByRole('button', { name: /надіслати бриф/i })
@@ -71,21 +70,12 @@ test('brief form validates and delivers through /api/brief', async ({ page }) =>
   await page.getByLabel(/Ваше ім'я/).fill('Олена')
   await page.getByLabel(/Telegram або телефон/).fill('@olena')
   await page.getByRole('checkbox', { name: 'ШІ-адміністратор' }).click()
-  await send.click()
-  await expect(page.getByText('Заявку отримано!')).toBeVisible()
-  expect(posted).toMatchObject({ name: 'Олена', contact: '@olena', needs: ['ШІ-адміністратор'] })
-})
-
-test('brief falls back to Telegram when the server is down', async ({ page }) => {
-  await page.route('**/api/brief', (r) => r.fulfill({ status: 503, json: { ok: false } }))
-  await skipIntro(page)
-  await page.goto('/#brief')
-  await page.getByLabel(/Ваше ім'я/).fill('Олена')
-  await page.getByLabel(/Telegram або телефон/).fill('@olena')
-  await page.getByRole('button', { name: /надіслати бриф/i }).click()
-  const tg = page.getByRole('link', { name: /Відкрити Telegram/ })
-  await expect(tg).toBeVisible()
-  expect(decodeURIComponent((await tg.getAttribute('href')) ?? '')).toContain("t.me/khami_val?text=Привіт! Заявка з сайту")
+  const [popup] = await Promise.all([context.waitForEvent('page'), send.click()])
+  const url = decodeURIComponent(popup.url())
+  expect(url).toContain('t.me/khami_val?text=')
+  expect(url).toContain("Ім'я: Олена")
+  expect(url).toContain('Потрібно: ШІ-адміністратор')
+  await expect(page.getByText('Дякую!')).toBeVisible()
 })
 
 test('no horizontal scroll and no broken images', async ({ page }) => {

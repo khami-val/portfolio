@@ -26,18 +26,3 @@ export function buildBriefMessage(f: BriefFields, needs: string[]): string {
 export function telegramLink(base: string, text: string): string {
   return `${base}?text=${encodeURIComponent(text)}`
 }
-
-export const NEEDS = ['Сайт', 'ШІ-адміністратор', 'Рекламне відео', 'Під ключ'] as const
-const LIMITS: Record<keyof BriefFields, number> = { name: 120, contact: 120, business: 200, message: 2000 }
-
-/** Server-side guard for /api/brief: keeps only known fields, trims and caps their length. */
-export function sanitizeBrief(body: unknown): { fields: BriefFields; needs: string[]; bot: boolean } | null {
-  if (!body || typeof body !== 'object') return null
-  const b = body as Record<string, unknown>
-  const str = (k: keyof BriefFields) => (typeof b[k] === 'string' ? (b[k] as string).trim().slice(0, LIMITS[k]) : '')
-  const fields: BriefFields = { name: str('name'), contact: str('contact'), business: str('business'), message: str('message') }
-  const needs = Array.isArray(b.needs) ? b.needs.filter((n): n is string => (NEEDS as readonly string[]).includes(n as string)) : []
-  // hidden "website" field: people never fill it, spam bots usually do
-  const bot = typeof b.website === 'string' && b.website.length > 0
-  return { fields, needs, bot }
-}
