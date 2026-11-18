@@ -55,7 +55,7 @@ function Cta() {
   return (
     <a
       href="#brief"
-      className="group inline-flex items-center gap-4 rounded-full border border-black/5 bg-white py-1.5 pl-1.5 pr-7 text-[#0C0C0C] shadow-[0_14px_36px_-10px_rgba(12,12,12,.4)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_-10px_rgba(182,0,168,.45)] active:scale-[0.98]"
+      className="group inline-flex items-center gap-4 rounded-full border border-black/5 bg-white py-1.5 pl-1.5 pr-7 text-[#0C0C0C] shadow-[0_10px_28px_-12px_rgba(12,12,12,.4)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-12px_rgba(182,0,168,.5)] active:scale-[0.98]"
     >
       <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0C0C0C] text-white transition-transform duration-300 group-hover:translate-x-1">
         <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -117,7 +117,7 @@ export default function Hero() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[42%] bg-gradient-to-t from-white via-white/80 to-transparent lg:h-[22%] lg:via-white/40" />
 
       {/* bottom-left (centered on phones): who + CTA */}
-      <div className="absolute bottom-7 left-5 right-5 z-30 text-center sm:left-8 sm:right-8 md:bottom-12 md:left-14 md:right-auto md:text-left">
+      <div className="absolute bottom-10 left-5 right-5 z-30 text-center sm:left-8 sm:right-8 md:bottom-12 md:left-14 md:right-auto md:text-left">
         <h1>
           <FadeIn as="span" delay={0.15} y={20} className="block text-xs font-light uppercase tracking-[0.3em] text-[#0C0C0C]/70 md:text-sm">Привіт, я Лера</FadeIn>
           <span className="mx-auto mt-4 block max-w-[640px] text-[clamp(1.6rem,6.7vw,2.75rem)] font-semibold uppercase leading-[1.08] tracking-tight text-[#0C0C0C]/45 md:mx-0 md:text-[clamp(1.5rem,2.9vw,2.75rem)] lg:max-w-[max(380px,calc(50vw-330px))] lg:text-[clamp(1.75rem,2.2vw,2.6rem)]">

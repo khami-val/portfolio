@@ -1,7 +1,13 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { Instagram, Send } from 'lucide-react'
 import { TELEGRAM } from './Buttons'
+
+const SOCIALS = [
+  { icon: Send, label: 'Telegram', href: TELEGRAM },
+  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/khami_val/' },
+]
 
 const EASE = [0.76, 0, 0.24, 1] as const
 
@@ -76,6 +82,21 @@ export default function Menu({ links }: { links: MenuLink[] }) {
                   </motion.a>
                 </span>
               ))}
+              <motion.ul
+                className="mt-8 flex flex-col gap-3 sm:mt-10"
+                initial={reduce ? false : { opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 + links.length * 0.08 + 0.1, ease: EASE }}
+              >
+                {SOCIALS.map((c) => (
+                  <li key={c.label}>
+                    <a href={c.href} target="_blank" rel="noopener" className="inline-flex items-center gap-3 text-lg font-light tracking-wide text-[#0C0C0C]/75 transition-opacity hover:opacity-60 sm:text-xl">
+                      <c.icon className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
+                      {c.label} <span className="text-[#0C0C0C]/60">@khami_val</span>
+                    </a>
+                  </li>
+                ))}
+              </motion.ul>
             </nav>
             <motion.div
               className="flex flex-wrap items-center justify-between gap-4 border-t border-black/10 pt-6 text-sm uppercase tracking-widest text-[#0C0C0C]/60"
@@ -87,7 +108,6 @@ export default function Menu({ links }: { links: MenuLink[] }) {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#16a34a]" aria-hidden="true" />
                 Беру нові проєкти
               </span>
-              <a href={TELEGRAM} target="_blank" rel="noopener" className="font-medium text-[#0C0C0C] hover:opacity-60">Telegram @khami_val</a>
             </motion.div>
           </motion.div>
         )}
