@@ -43,7 +43,7 @@ function Ring() {
               transform: `rotateY(${i * step}deg) translateZ(calc(var(--r) * -1))`,
             }}
           >
-            <img src={s.src} alt="" loading="eager" decoding="async" className="h-full w-full object-cover object-top" />
+            <img src={s.src} alt="" loading="eager" decoding="async" draggable={false} className="pointer-events-none h-full w-full select-none object-cover object-top" />
           </div>
         ))}
       </div>
@@ -68,7 +68,7 @@ function Cta() {
 export default function Hero() {
   const reduce = useReducedMotion()
   return (
-    <section className="relative h-[100svh] max-h-[900px] min-h-[620px] overflow-hidden lg:max-h-none bg-white text-[#0C0C0C]">
+    <section className="relative h-[100svh] max-h-[900px] min-h-[620px] select-none overflow-hidden lg:max-h-none bg-white text-[#0C0C0C]">
       <Ring />
 
       {/* top bar */}

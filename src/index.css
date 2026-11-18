@@ -5,7 +5,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body, #root { background: #FFFFFF; color: #0C0C0C; }
 body { font-family: 'Kanit', 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 .hero-heading {
@@ -17,7 +17,9 @@ html { scroll-behavior: smooth; }
 :focus-visible { outline: 2px solid #B600A8; outline-offset: 3px; border-radius: 4px; }
 
 /* hero: inward-facing 3D ring of project screens (camera sits inside the ring) */
-.ring-stage { perspective: var(--p); }
+.ring-stage { perspective: var(--p); -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.ring-stage *::selection { background: transparent; }
+.ring-stage img { -webkit-user-drag: none; }
 .ring { transform-style: preserve-3d; animation: ring-spin 70s linear infinite; }
 .ring-card { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
 @keyframes ring-spin { from { transform: translateZ(calc(var(--r) * -0.35)) rotateY(0deg); } to { transform: translateZ(calc(var(--r) * -0.35)) rotateY(-360deg); } }
