@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { background: #FFFFFF; color: #0C0C0C; }
+body { font-family: 'Kanit', 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.hero-heading {
+  background: linear-gradient(180deg, #0C0C0C 0%, #4A505A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+:focus-visible { outline: 2px solid #B600A8; outline-offset: 3px; border-radius: 4px; }
+
+/* hero: inward-facing 3D ring of project screens (camera sits inside the ring) */
+.ring-stage { perspective: var(--p); }
+.ring { transform-style: preserve-3d; animation: ring-spin 70s linear infinite; }
+.ring-card { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+@keyframes ring-spin { from { transform: translateZ(calc(var(--r) * -0.35)) rotateY(0deg); } to { transform: translateZ(calc(var(--r) * -0.35)) rotateY(-360deg); } }
+@media (prefers-reduced-motion: reduce) { .ring { animation: none; transform: translateZ(calc(var(--r) * -0.35)) rotateY(-12deg); } }

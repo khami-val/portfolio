@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-preview
+coverage
+test-results
+playwright-report
+.lighthouseci
+*.tsbuildinfo
+.DS_Store
+.env*
