@@ -94,7 +94,7 @@ export default function Hero() {
       </FadeIn>
 
       {/* avatar, anchored to the bottom edge */}
-      <div className="pointer-events-none absolute inset-x-0 top-[29%] z-10 flex justify-center sm:top-[24%] lg:top-[14%]">
+      <div className="pointer-events-none absolute inset-x-0 top-[22%] z-10 flex justify-center sm:top-[20%] lg:top-[14%]">
         <FadeIn delay={0.35} y={40}>
           <div className="relative">
             <div aria-hidden="true" className="absolute inset-[10%_8%_0] -z-10 rounded-full blur-3xl" style={{ background: 'radial-gradient(closest-side, rgba(182,0,168,.28), rgba(118,33,176,.12) 60%, transparent 80%)' }} />
